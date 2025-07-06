@@ -1,0 +1,304 @@
+[gd_scene load_steps=14 format=3 uid="uid://g4sxqmq47jro"]
+
+[ext_resource type="Texture2D" uid="uid://bmuiu0n3ao3w5" path="res://Giraffee 2025.svg" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://b80iu6umqjyse" path="res://icon.svg" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://dgri36s8b3vlk" path="res://dynamic_jiggle_creation.gd" id="2_0hol4"]
+[ext_resource type="Script" uid="uid://di7p8gvtbcb2h" path="res://physics.gd" id="2_epypp"]
+
+[sub_resource type="SkeletonModification2DJiggle" id="SkeletonModification2DJiggle_0e48y"]
+target_nodepath = NodePath("../Target")
+jiggle_data_chain_length = 3
+stiffness = 5.0
+mass = 1.0
+damping = 0.5
+use_gravity = true
+gravity = Vector2(0, 0)
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/0/override_defaults = false
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D2")
+joint_data/1/override_defaults = false
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D2/Bone2D3")
+joint_data/2/override_defaults = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_epypp"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DJiggle_0e48y")
+
+[sub_resource type="SkeletonModification2DJiggle" id="SkeletonModification2DJiggle_q6r6c"]
+target_nodepath = NodePath("../Target")
+jiggle_data_chain_length = 3
+stiffness = 5.0
+mass = 1.0
+damping = 0.5
+use_gravity = true
+gravity = Vector2(0, 0)
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/0/override_defaults = false
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D2")
+joint_data/1/override_defaults = false
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D2/Bone2D3")
+joint_data/2/override_defaults = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_kdubu"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DJiggle_q6r6c")
+
+[sub_resource type="SkeletonModification2DJiggle" id="SkeletonModification2DJiggle_epypp"]
+target_nodepath = NodePath("../Target")
+jiggle_data_chain_length = 3
+stiffness = 10.0
+mass = 6.0
+damping = 0.5
+use_gravity = true
+gravity = Vector2(0, 0)
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Bone2D")
+joint_data/0/override_defaults = false
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D2")
+joint_data/1/override_defaults = false
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Bone2D/Bone2D2/Bone2D3")
+joint_data/2/override_defaults = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_0hol4"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DJiggle_epypp")
+
+[sub_resource type="Animation" id="Animation_0hol4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(282, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_epypp"]
+resource_name = "new_animation"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(282, -9), Vector2(281, 29), Vector2(307, 54), Vector2(357, 22)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6r6c"]
+_data = {
+&"RESET": SubResource("Animation_0hol4"),
+&"new_animation": SubResource("Animation_epypp")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-0.302795, 0.134232)
+texture = ExtResource("1_wtcfe")
+skeleton = NodePath("Skeleton2D")
+polygon = PackedVector2Array(68.4844, 0.819786, 40.4809, -11.4745, 17.2584, -0.546242, -2.54901, 24.7253, 1.54907, 47.9477, -10.0622, 68.4382, -3.23203, 99.1738, 13.8433, 110.785, 39.1148, 120.347, 71.2165, 127.86, 82.8277, 99.8568, 77.3636, 73.2193, 58.9222, 60.242, 78.0466, 38.3855, 85.5598, 14.4801, 26.8206, 25.4083, 58.2392, 20.6272, 24.7715, 49.9968, 24.7715, 80.7324, 50.0431, 90.2946)
+uv = PackedVector2Array(68.4844, 0.819786, 40.4809, -11.4745, 17.2584, -0.546242, -2.54901, 24.7253, 1.54907, 47.9477, -10.0622, 68.4382, -3.23203, 99.1738, 13.8433, 110.785, 39.1148, 120.347, 71.2165, 127.86, 82.8277, 99.8568, 77.3636, 73.2193, 58.9222, 60.242, 78.0466, 38.3855, 85.5598, 14.4801, 26.8206, 25.4083, 58.2392, 20.6272, 24.7715, 49.9968, 24.7715, 80.7324, 50.0431, 90.2946)
+polygons = [PackedInt32Array(3, 15, 2), PackedInt32Array(15, 1, 2), PackedInt32Array(16, 15, 1), PackedInt32Array(16, 0, 1), PackedInt32Array(0, 14, 16), PackedInt32Array(16, 13, 14), PackedInt32Array(16, 12, 13), PackedInt32Array(15, 12, 16), PackedInt32Array(3, 15, 17), PackedInt32Array(17, 12, 15), PackedInt32Array(17, 4, 3), PackedInt32Array(4, 5, 18), PackedInt32Array(4, 17, 18), PackedInt32Array(17, 18, 19), PackedInt32Array(17, 12, 19), PackedInt32Array(12, 11, 19), PackedInt32Array(11, 10, 19), PackedInt32Array(5, 6, 18), PackedInt32Array(6, 7, 18), PackedInt32Array(18, 7, 19), PackedInt32Array(19, 8, 7), PackedInt32Array(19, 10, 8), PackedInt32Array(8, 9, 10)]
+bones = ["Bone2D", PackedFloat32Array(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0), "Bone2D/Bone2D2", PackedFloat32Array(0.45, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.45, 0.45, 0, 1, 0, 0, 0), "Bone2D/Bone2D2/Bone2D3", PackedFloat32Array(1, 0.45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0.45, 0, 0, 0), "Static", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1)]
+internal_vertex_count = 5
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Polygon2D"]
+modification_stack = SubResource("SkeletonModificationStack2D_epypp")
+
+[node name="Bone2D" type="Bone2D" parent="Polygon2D/Skeleton2D"]
+position = Vector2(20, 25)
+rest = Transform2D(1, 0, 0, 1, 20, 25)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Bone2D2" type="Bone2D" parent="Polygon2D/Skeleton2D/Bone2D"]
+position = Vector2(15, -2)
+rotation = -0.0256353
+scale = Vector2(0.999957, 0.999957)
+rest = Transform2D(0.999628, -0.0256314, 0.0256314, 0.999628, 15, -2)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Bone2D3" type="Bone2D" parent="Polygon2D/Skeleton2D/Bone2D/Bone2D2"]
+position = Vector2(15.0087, -1.00232)
+rotation = 0.0417289
+scale = Vector2(1.00003, 1.00003)
+rest = Transform2D(0.999164, 0.0417182, -0.0417182, 0.999164, 15.0087, -1.00232)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Static" type="Bone2D" parent="Polygon2D/Skeleton2D"]
+position = Vector2(16, 58)
+rest = Transform2D(1, 0, 0, 1, 16, 58)
+
+[node name="Target" type="Node2D" parent="Polygon2D"]
+position = Vector2(74, 22)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(497, 64)
+texture = ExtResource("1_wtcfe")
+skeleton = NodePath("Skeleton2D")
+polygon = PackedVector2Array(68.4844, 0.819786, 40.4809, -11.4745, 17.2584, -0.546242, -2.54901, 24.7253, 1.54907, 47.9477, -10.0622, 68.4382, -3.23203, 99.1738, 13.8433, 110.785, 39.1148, 120.347, 71.2165, 127.86, 82.8277, 99.8568, 77.3636, 73.2193, 58.9222, 60.242, 78.0466, 38.3855, 85.5598, 14.4801, 26.8206, 25.4083, 58.2392, 20.6272, 24.7715, 49.9968, 24.7715, 80.7324, 50.0431, 90.2946)
+uv = PackedVector2Array(68.4844, 0.819786, 40.4809, -11.4745, 17.2584, -0.546242, -2.54901, 24.7253, 1.54907, 47.9477, -10.0622, 68.4382, -3.23203, 99.1738, 13.8433, 110.785, 39.1148, 120.347, 71.2165, 127.86, 82.8277, 99.8568, 77.3636, 73.2193, 58.9222, 60.242, 78.0466, 38.3855, 85.5598, 14.4801, 26.8206, 25.4083, 58.2392, 20.6272, 24.7715, 49.9968, 24.7715, 80.7324, 50.0431, 90.2946)
+polygons = [PackedInt32Array(3, 15, 2), PackedInt32Array(15, 1, 2), PackedInt32Array(16, 15, 1), PackedInt32Array(16, 0, 1), PackedInt32Array(0, 14, 16), PackedInt32Array(16, 13, 14), PackedInt32Array(16, 12, 13), PackedInt32Array(15, 12, 16), PackedInt32Array(3, 15, 17), PackedInt32Array(17, 12, 15), PackedInt32Array(17, 4, 3), PackedInt32Array(4, 5, 18), PackedInt32Array(4, 17, 18), PackedInt32Array(17, 18, 19), PackedInt32Array(17, 12, 19), PackedInt32Array(12, 11, 19), PackedInt32Array(11, 10, 19), PackedInt32Array(5, 6, 18), PackedInt32Array(6, 7, 18), PackedInt32Array(18, 7, 19), PackedInt32Array(19, 8, 7), PackedInt32Array(19, 10, 8), PackedInt32Array(8, 9, 10)]
+bones = ["Bone2D", PackedFloat32Array(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0), "Bone2D/Bone2D2", PackedFloat32Array(0.45, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.45, 0.45, 0, 1, 0, 0, 0), "Bone2D/Bone2D2/Bone2D3", PackedFloat32Array(1, 0.45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0.45, 0, 0, 0), "Static", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1)]
+internal_vertex_count = 5
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Polygon2D3"]
+modification_stack = SubResource("SkeletonModificationStack2D_kdubu")
+
+[node name="Bone2D" type="Bone2D" parent="Polygon2D3/Skeleton2D"]
+position = Vector2(20, 25)
+rest = Transform2D(1, 0, 0, 1, 20, 25)
+
+[node name="Bone2D2" type="Bone2D" parent="Polygon2D3/Skeleton2D/Bone2D"]
+position = Vector2(15, -2)
+rotation = -0.0256353
+scale = Vector2(0.999957, 0.999957)
+rest = Transform2D(0.999628, -0.0256314, 0.0256314, 0.999628, 15, -2)
+
+[node name="Bone2D3" type="Bone2D" parent="Polygon2D3/Skeleton2D/Bone2D/Bone2D2"]
+position = Vector2(15.0087, -1.00232)
+rotation = 0.0417289
+scale = Vector2(1.00003, 1.00003)
+rest = Transform2D(0.99916, 0.041718, -0.041718, 0.99916, 15.0087, -1.00232)
+
+[node name="PolyStretchJiggle2D" type="Node2D" parent="Polygon2D3/Skeleton2D/Bone2D/Bone2D2"]
+script = ExtResource("2_0hol4")
+mass = 20.0
+stiffness = 10000.0
+damping = 30.0
+length = 1000.0
+metadata/_custom_type_script = "uid://dgri36s8b3vlk"
+
+[node name="PolyStretchJiggle2D" type="Node2D" parent="Polygon2D3/Skeleton2D/Bone2D"]
+script = ExtResource("2_0hol4")
+mass = 20.0
+stiffness = 10000.0
+damping = 30.0
+length = 1000.0
+metadata/_custom_type_script = "uid://dgri36s8b3vlk"
+
+[node name="Static" type="Bone2D" parent="Polygon2D3/Skeleton2D"]
+position = Vector2(16, 58)
+rest = Transform2D(1, 0, 0, 1, 16, 58)
+
+[node name="Target" type="Node2D" parent="Polygon2D3"]
+position = Vector2(74, 22)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(282, -9)
+texture = ExtResource("1_wtcfe")
+skeleton = NodePath("Skeleton2D")
+polygon = PackedVector2Array(68.4844, 0.819786, 40.4809, -11.4745, 17.2584, -0.546242, -2.54901, 24.7253, 1.54907, 47.9477, -10.0622, 68.4382, -3.23203, 99.1738, 13.8433, 110.785, 39.1148, 120.347, 71.2165, 127.86, 82.8277, 99.8568, 77.3636, 73.2193, 58.9222, 60.242, 78.0466, 38.3855, 85.5598, 14.4801, 26.8206, 25.4083, 58.2392, 20.6272, 24.7715, 49.9968, 24.7715, 80.7324, 50.0431, 90.2946)
+uv = PackedVector2Array(68.4844, 0.819786, 40.4809, -11.4745, 17.2584, -0.546242, -2.54901, 24.7253, 1.54907, 47.9477, -10.0622, 68.4382, -3.23203, 99.1738, 13.8433, 110.785, 39.1148, 120.347, 71.2165, 127.86, 82.8277, 99.8568, 77.3636, 73.2193, 58.9222, 60.242, 78.0466, 38.3855, 85.5598, 14.4801, 26.8206, 25.4083, 56.5014, 21.728, 24.7715, 49.9968, 24.7715, 80.7324, 50.0431, 90.2946)
+polygons = [PackedInt32Array(3, 15, 2), PackedInt32Array(15, 1, 2), PackedInt32Array(16, 15, 1), PackedInt32Array(16, 0, 1), PackedInt32Array(0, 14, 16), PackedInt32Array(16, 13, 14), PackedInt32Array(16, 12, 13), PackedInt32Array(15, 12, 16), PackedInt32Array(3, 15, 17), PackedInt32Array(17, 12, 15), PackedInt32Array(17, 4, 3), PackedInt32Array(4, 5, 18), PackedInt32Array(4, 17, 18), PackedInt32Array(17, 18, 19), PackedInt32Array(17, 12, 19), PackedInt32Array(12, 11, 19), PackedInt32Array(11, 10, 19), PackedInt32Array(5, 6, 18), PackedInt32Array(6, 7, 18), PackedInt32Array(18, 7, 19), PackedInt32Array(19, 8, 7), PackedInt32Array(19, 10, 8), PackedInt32Array(8, 9, 10)]
+bones = ["Bone2D", PackedFloat32Array(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0), "Bone2D/Bone2D2", PackedFloat32Array(0.45, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.45, 0.45, 0, 1, 0, 0, 0), "Bone2D/Bone2D2/Bone2D3", PackedFloat32Array(1, 0.45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0.45, 0, 0, 0), "Static", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1)]
+internal_vertex_count = 5
+script = ExtResource("2_epypp")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Polygon2D2"]
+modification_stack = SubResource("SkeletonModificationStack2D_0hol4")
+
+[node name="Bone2D" type="Bone2D" parent="Polygon2D2/Skeleton2D"]
+position = Vector2(20, 25)
+rotation = -0.132551
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(1, 0, 0, 1, 20, 25)
+
+[node name="Bone2D2" type="Bone2D" parent="Polygon2D2/Skeleton2D/Bone2D"]
+position = Vector2(15.1328, 0)
+rotation = -0.0256361
+scale = Vector2(0.999909, 0.999909)
+rest = Transform2D(0.999628, -0.0256314, 0.0256314, 0.999628, 15, -2)
+
+[node name="Bone2D3" type="Bone2D" parent="Polygon2D2/Skeleton2D/Bone2D/Bone2D2"]
+position = Vector2(15.0087, -1.00232)
+rotation = 0.0417289
+scale = Vector2(1.00003, 1.00003)
+rest = Transform2D(0.999164, 0.0417182, -0.0417182, 0.999164, 15.0087, -1.00232)
+
+[node name="Static" type="Bone2D" parent="Polygon2D2/Skeleton2D"]
+position = Vector2(16, 58)
+rest = Transform2D(1, 0, 0, 1, 16, 58)
+
+[node name="Target" type="Node2D" parent="Polygon2D2"]
+position = Vector2(74, 22)
+
+[node name="1" type="DampedSpringJoint2D" parent="Polygon2D2"]
+position = Vector2(36, -92)
+node_a = NodePath("../Static1")
+node_b = NodePath("../RigidBody2D")
+length = 113.0
+stiffness = 2000.0
+damping = 10.0
+
+[node name="2" type="DampedSpringJoint2D" parent="Polygon2D2"]
+position = Vector2(36, 138)
+rotation = -3.14159
+node_a = NodePath("../Static2")
+node_b = NodePath("../RigidBody2D")
+length = 113.0
+stiffness = 2000.0
+damping = 10.0
+
+[node name="3" type="DampedSpringJoint2D" parent="Polygon2D2"]
+position = Vector2(-79, 23)
+rotation = -1.5708
+node_a = NodePath("../Static3")
+node_b = NodePath("../RigidBody2D")
+length = 112.0
+stiffness = 2000.0
+damping = 10.0
+
+[node name="4" type="DampedSpringJoint2D" parent="Polygon2D2"]
+position = Vector2(151, 23)
+rotation = -4.71239
+node_a = NodePath("../Static4")
+node_b = NodePath("../RigidBody2D")
+length = 113.0
+stiffness = 2000.0
+damping = 10.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Polygon2D2"]
+position = Vector2(35, 23)
+mass = 10.0
+constant_force = Vector2(0, -980)
+
+[node name="Sprite2D" type="Sprite2D" parent="Polygon2D2/RigidBody2D"]
+visible = false
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_0e48y")
+
+[node name="Static1" type="StaticBody2D" parent="Polygon2D2"]
+position = Vector2(36, -92)
+
+[node name="Static2" type="StaticBody2D" parent="Polygon2D2"]
+position = Vector2(36, 138)
+
+[node name="Static3" type="StaticBody2D" parent="Polygon2D2"]
+position = Vector2(-79, 23)
+
+[node name="Static4" type="StaticBody2D" parent="Polygon2D2"]
+position = Vector2(151, 23)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Polygon2D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_q6r6c")
+}
